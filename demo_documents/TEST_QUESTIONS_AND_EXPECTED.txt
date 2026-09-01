@@ -1,0 +1,98 @@
+LOCAL AI FINAL TEST PACK - QUESTIONS AND EXPECTED BEHAVIOUR
+
+Use ONE file at a time as the active file unless a test explicitly says otherwise.
+The assistant should answer only from the active file and should not invent missing information.
+
+=== 01_Solar_Microgrid_Technical_Guide.pdf ===
+1. What is the battery capacity?
+   EXPECTED: 40 kWh.
+2. What is the normal battery SOC operating range?
+   EXPECTED: 20% to 90%.
+3. What happens if SOC falls below 15%?
+   EXPECTED: Non-essential loads are disconnected automatically.
+4. What does fault code F27 mean and what should the operator do?
+   EXPECTED: Inverter overtemperature; reduce load, verify ventilation, allow cooling before restart.
+5. Summarize the maintenance schedule.
+   EXPECTED: Monthly PV visual inspection; battery health every 3 months; inverter firmware every 6 months; annual protection-system test.
+6. How often is telemetry recorded and how long are logs retained?
+   EXPECTED: Every 10 seconds; 30 days.
+7. Which cloud provider stores the logs?
+   EXPECTED: Not provided / guide explicitly does not specify one.
+8. What is the exact installation address of the microgrid?
+   EXPECTED: Not provided.
+
+=== 02_Engineering_Math_Assignment_Test.pdf ===
+1. What topics are covered in Section A?
+   EXPECTED: Differentiation, integration, and basic differential equations.
+2. How many marks is Question 4 worth?
+   EXPECTED: 10 marks.
+3. Which question requires logarithmic differentiation and forbids alternative methods?
+   EXPECTED: Question 2.
+4. What is the value of tanh(x) given in Question 5(b)?
+   EXPECTED: 3/4.
+5. How many red and blue components are in Question 6?
+   EXPECTED: 30 red, 20 blue.
+6. What are the six diameters in Question 7?
+   EXPECTED: 10.1, 9.9, 10.0, 10.2, 9.8, 10.0 mm.
+7. What is the exact submission deadline?
+   EXPECTED: Not provided; document states no deadline is specified.
+
+=== 03_Prototype_Design_Review_Rubric.docx ===
+1. What are the three criteria and how many marks is each worth?
+   EXPECTED: Technical Design 45; Testing & Evidence 30; Team Communication 25.
+2. What percentage range counts as Excellent?
+   EXPECTED: 70-100%.
+3. What is the difference between Excellent and Good for Testing & Evidence?
+   EXPECTED: Excellent has well-planned/repeatable tests, appropriate measurements, clear interpretation; Good has useful tests but some interpretation/repeatability limitations.
+4. What would cause Needs Improvement in Technical Design?
+   EXPECTED: No coherent architecture, major requirements ignored, or unsupported decisions.
+5. How should the team maximize its score?
+   EXPECTED: Summarize Excellent requirements across all three criteria, without inventing new requirements.
+6. What is the submission deadline?
+   EXPECTED: Not provided / explicitly not stated.
+
+=== 04_Student_Travel_Support_Form.docx ===
+1. What are the student's monthly living expenses?
+   EXPECTED: £850.
+2. Who will sponsor the trip?
+   EXPECTED: Jordan Smith.
+3. Which bank will the sponsor use?
+   EXPECTED: Barclays.
+4. Summarize the student's travel and visa history.
+   EXPECTED: No Canada visit in last 10 years; France 12-18 July 2024 for tourism; no visa refusal; no relative in Canada.
+5. What is the preferred travel month?
+   EXPECTED: September.
+6. What is the passport number?
+   EXPECTED: Not supplied. Do not invent a number.
+
+=== 05_Lab_Network_Notes.txt ===
+1. What is the monitoring server IP address?
+   EXPECTED: 192.168.50.10.
+2. What ports are used for telemetry and commands?
+   EXPECTED: 5500 telemetry, 5501 command.
+3. What should happen if a controller is disconnected for more than 30 seconds?
+   EXPECTED: Dashboard displays OFFLINE and creates a warning entry.
+4. How often are configuration backups created?
+   EXPECTED: Every Friday at 18:00.
+5. Who is responsible for maintenance?
+   EXPECTED: Controls Engineering.
+6. What is the Wi-Fi password?
+   EXPECTED: Not provided; file explicitly says credentials are not documented.
+
+=== CROSS-FILE / ACTIVE-FILE ISOLATION TESTS ===
+A. Keep 03_Prototype_Design_Review_Rubric.docx active and ask: Who will sponsor the trip?
+   EXPECTED: Not provided in the rubric. It must NOT answer Jordan Smith.
+B. Keep 05_Lab_Network_Notes.txt active and ask: What is the battery capacity?
+   EXPECTED: Not provided in the TXT file. It must NOT answer 40 kWh.
+C. Keep 04_Student_Travel_Support_Form.docx active and ask: What is the telemetry port?
+   EXPECTED: Not provided in the form. It must NOT answer 5500.
+
+=== LANGUAGE TESTS ===
+Ask in Turkish while an English file is active:
+- Sponsor kim? -> Jordan Smith.
+- Soru 4 kaç puan? -> 10 marks / 10 puan.
+- SQLite yerine bu dosyada hangi veritabanı kullanılıyor? -> If not in active file, say not provided.
+The answer language should follow the user's question language, but names, filenames, IP addresses, code identifiers, percentages, and technical terms should remain unchanged where appropriate.
+
+=== QUALITY PASS CRITERIA ===
+PASS if: exact facts are correct; multi-part summaries include all supported facts; no cross-file contamination; no invented dates/names/numbers; missing facts return a clear fallback; answer language follows the question; sources correspond to the active file.

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+Thumbs.db
+projects/*
+!projects/.gitkeep
+*.db
+*.sqlite
+*.sqlite3

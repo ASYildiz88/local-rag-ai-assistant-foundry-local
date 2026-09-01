@@ -1,0 +1,25 @@
+Lab Network Notes
+
+Purpose
+The laboratory control network connects three test benches to a local monitoring server. Internet access is not required for normal operation.
+
+Network Settings
+Monitoring server IP: 192.168.50.10
+Gateway: 192.168.50.1
+Primary VLAN: 120
+Telemetry port: 5500
+Command port: 5501
+
+Devices
+Bench A controller: 192.168.50.21
+Bench B controller: 192.168.50.22
+Bench C controller: 192.168.50.23
+
+Logging
+Telemetry is sampled every 2 seconds. Logs are retained for 14 days. If a controller loses connection for more than 30 seconds, the dashboard should display OFFLINE and create a warning entry.
+
+Security
+Only the monitoring server may send command messages to the benches. User passwords and Wi-Fi credentials are not documented in this file.
+
+Maintenance
+Configuration backups are created every Friday at 18:00. The responsible team is Controls Engineering.
